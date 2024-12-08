@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisfiú Könyvlistája</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .category {
+            margin: 10px 0;
+        }
+        .category-header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .category-content {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #eaeaea;
+        }
+        .toggle-button {
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .toggle-button:hover {
+            background-color: #45a049;
+        }
+        .book {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .book img {
+            width: 50px;
+            height: 70px;
+            margin-right: 15px;
+        }
+        .book-title {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Kisfiú Könyvlistája</h1>
+
+<button class="toggle-button" onclick="toggleAll()">Összes menü ki-/becsukása</button>
+
+<div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">Képeskönyvek</div>
+    <div class="category-content">
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Képeskönyv 1 borító">
+            <div class="book-title">Képeskönyv 1</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Képeskönyv 2 borító">
+            <div class="book-title">Képeskönyv 2</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Képeskönyv 3 borító">
+            <div class="book-title">Képeskönyv 3</div>
+        </div>
+    </div>
+</div>
+
+<div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">Mesekönyvek</div>
+    <div class="category-content">
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Mesekönyv 1 borító">
+            <div class="book-title">Mesekönyv 1</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Mesekönyv 2 borító">
+            <div class="book-title">Mesekönyv 2</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Mesekönyv 3 borító">
+            <div class="book-title">Mesekönyv 3</div>
+        </div>
+    </div>
+</div>
+
+<div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">Foglalkoztató könyvek</div>
+    <div class="category-content">
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Foglalkoztató könyv 1 borító">
+            <div class="book-title">Foglalkoztató könyv 1</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Foglalkoztató könyv 2 borító">
+            <div class="book-title">Foglalkoztató könyv 2</div>
+        </div>
+        <div class="book">
+            <img src="https://via.placeholder.com/50x70" alt="Foglalkoztató könyv 3 borító">
+            <div class="book-title">Foglalkoztató könyv 3</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleCategory(header) {
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+    }
+
+    function toggleAll() {
+        const contents = document.querySelectorAll('.category-content');
+        const anyOpen = Array.from(contents).some(content => content.style.display === 'block');
+        
+        contents.forEach(content => {
+            content.style.display = anyOpen ? 'none' : 'block';
+        });
+    }
+</script>
+
+</body>
+</html>
